@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(ProductDto form) {
-
         Product product = Product.builder()
+                .productId(form.getProductId())
                 .name(form.getName())
                 .shortDesc(form.getShortDesc())
                 .price(form.getPrice())
@@ -34,17 +34,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product modifyProduct(ProductDto form) {
-        Long productId = form.getProductId();
+    public Product modifyProduct(ProductDto product) {
+        Long productId = product.getProductId();
         Product oldProduct = productRepository.findById(productId)
                 .orElseThrow(() -> new DatabaseInvalidException("Wrong product id provided: " + productId));
-        oldProduct.setName(form.getName());
-        oldProduct.setShortDesc(form.getShortDesc());
-        oldProduct.setPrice(form.getPrice());
-        oldProduct.setSalePrice(form.getSalePrice());
-        oldProduct.setStock(form.getStock());
-        oldProduct.setSold(form.getSold());
-        oldProduct.setAuthor(form.getAuthor());
+        oldProduct.setName(product.getName());
+        oldProduct.setShortDesc(product.getShortDesc());
+        oldProduct.setPrice(product.getPrice());
+        oldProduct.setSalePrice(product.getSalePrice());
+        oldProduct.setStock(product.getStock());
+        oldProduct.setSold(product.getSold());
+        oldProduct.setAuthor(product.getAuthor());
         return productRepository.save(oldProduct);
     }
 

@@ -77,7 +77,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     @ExceptionHandler(DatabaseInvalidException.class)
     public ResponseEntity<ResponseContent<?>> handleDatabaseInvalidException(DatabaseInvalidException ex) {
-        logger.error("400 Status Code: DatabaseInvalidException", ex);
+        logger.error("400 Status Code: DatabaseInvalidException");
         return ResponseEntity.badRequest().body(ResponseContent.error().message(ex.getMessage()).build());
     }
 

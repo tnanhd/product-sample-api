@@ -7,9 +7,9 @@ import org.springframework.data.domain.Pageable;
 
 public interface ProductService {
 
-    Product createProduct(ProductDto productForm);
+    Product createProduct(ProductDto product);
 
-    Product modifyProduct(ProductDto productForm);
+    Product modifyProduct(ProductDto product);
 
     Product findById(Long productId);
 

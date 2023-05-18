@@ -30,29 +30,29 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<ResponseContent<Product>> createProduct(@RequestBody ProductDto productForm) {
+    public ResponseEntity<Product> createProduct(@RequestBody ProductDto productForm) {
         Product product = productService.createProduct(productForm);
-        return ResponseEntity.ok().body(ResponseContent.success().data(product));
+        return ResponseEntity.ok().body(product);
     }
 
     @PutMapping("/{productId}")
-    public ResponseEntity<ResponseContent<Product>> modifyProduct(@RequestBody ProductDto productForm,
+    public ResponseEntity<Product> modifyProduct(@RequestBody ProductDto productForm,
                                                                   @PathVariable Long productId) {
         productForm.setProductId(productId);
         Product product = productService.modifyProduct(productForm);
-        return ResponseEntity.ok().body(ResponseContent.success().data(product));
+        return ResponseEntity.ok().body(product);
     }
 
     @DeleteMapping("/{productId}")
-    public ResponseEntity<ResponseContent<Product>> deleteProduct(@PathVariable Long productId) {
+    public ResponseEntity<?> deleteProduct(@PathVariable Long productId) {
         productService.deleteProduct(productId);
-        return ResponseEntity.ok().body(ResponseContent.success().build());
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{productId}")
-    public ResponseEntity<ResponseContent<Product>> findProductById(@PathVariable Long productId) {
+    public ResponseEntity<Product> findProductById(@PathVariable Long productId) {
         Product product = productService.findById(productId);
-        return ResponseEntity.ok().body(ResponseContent.success().data(product));
+        return ResponseEntity.ok().body(product);
     }
 
     @Operation(summary = "Find products by category id or Get all (pageable)")
