@@ -11,4 +11,5 @@ import org.junit.runner.RunWith;
         glue = {"live.stoicism.productsampleapi.bdd.cucumberglue"}
 )
 public class CucumberIntegrationTestRunner {
+    // TODO: Consider adding cucumber-report [https://gitlab.com/jamietanna/cucumber-reporting-plugin]
 }

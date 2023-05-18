@@ -1,7 +1,7 @@
 Feature: Product Management API
 
   Scenario: Fetching an non-existed product with id
-    When user wants to query the details of the product with id 100
+    When user wants to query the details of the product with id 10000
     Then the result 'FAILS'
 
   Scenario: Create a new product
