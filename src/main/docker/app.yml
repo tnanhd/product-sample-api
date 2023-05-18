@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0.31
+    environment:
+      - MYSQL_DATABASE=sampleapi
+      - MYSQL_ROOT_PASSWORD=changeit
+    ports:
+      - "127.0.0.1:3306:3306"
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+  ws:
+    image: tnanhd/sampleapi
+    environment:
+      - SPRING_PROFILES_ACTIVE=int
+    ports:
+      - "8080:8080"
