@@ -1,3 +1,7 @@
+# Product Management API
+
+This project aims to demo unit tests, integration tests, and cucumber tests.
+
 ## Usage/Examples
 To run all the unit tests
 ```sh
