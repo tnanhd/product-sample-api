@@ -18,9 +18,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 @WebMvcTest(controllers = ProductController.class)
 public class ProductControllerTest {
@@ -68,6 +68,17 @@ public class ProductControllerTest {
 
         assertEquals(HttpStatus.OK.value(), result.getStatus());
         JSONAssert.assertEquals(PRODUCT_POST_PAYLOAD, result.getContentAsString(), false);
+    }
+
+    @Test
+    public void testDeleteProduct() throws Exception {
+        doNothing().when(productService).deleteProduct(PRODUCT_ID);
+
+        var result = mockMvc.perform(delete("/api/products/{productId}", PRODUCT_ID))
+                .andReturn()
+                .getResponse();
+
+        assertEquals(HttpStatus.OK.value(), result.getStatus());
     }
 
 }
