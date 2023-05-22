@@ -15,7 +15,7 @@ To run all the integration tests
 
 To run the cucumber tests
 ```sh
-./gradlew test --tests live.stoicism.productsampleapi.bdd.CucumberIntegrationTestRunner
+./gradlew test --tests live.stoicism.productsampleapi.bdd.RunCucumberTest
 ```
 
 To build the docker image
