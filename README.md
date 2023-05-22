@@ -33,4 +33,10 @@ To stop from docker compose
 docker compose -f ./src/main/docker/app.yml down
 ```
 
+To show allure report [Must install allure locally first](https://docs.qameta.io/allure/#_installing_a_commandline)
+```sh
+allure serve build/allure-results
+```
+
+
 ### [Click here to access swagger ui](http://localhost:8080/swagger-ui/index.html#/)
