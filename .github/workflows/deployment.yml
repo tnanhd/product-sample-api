@@ -22,7 +22,7 @@ jobs:
       - name: Run Integration Tests
         run: ./gradlew test --tests live.stoicism.productsampleapi.integration.ProductControllerIntegrationTest
       - name: Run Cucumber Acceptance Tests
-        run: ./gradlew test --tests live.stoicism.productsampleapi.bdd.CucumberIntegrationTestRunner
+        run: ./gradlew test --tests live.stoicism.productsampleapi.bdd.RunCucumberTest
       - name: Build and package the jar file
         run: ./gradlew build -x test
       - name: Login to DockerHub
